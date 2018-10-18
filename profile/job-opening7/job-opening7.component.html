@@ -1,0 +1,27 @@
+<app-profile-card-layout selectedLink="step7" [leftNav]="leftLink" [rightNav]="rightLink"  header="Is ideally working in those industries">
+  <form (submit)="onSubmit()" class="flex-grow-1">
+
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="font-weight-bold">
+      <mat-button-toggle value="hourly">Hourly</mat-button-toggle>
+      <mat-button-toggle value="monthly">Monthly</mat-button-toggle>
+      <mat-button-toggle value="yearly">Yearly</mat-button-toggle>
+    </mat-button-toggle-group>
+
+
+    <div class="position-relative salary-input">
+      <mat-form-field class="mt-4">
+        <input matInput type="text" placeholder="Salary up to (gross salary, before taxes)" (formControl)="salary">
+        <span class="form-control-feedback">
+
+                </span>
+      </mat-form-field>
+      <mat-select [value]="money_type">
+        <mat-option *ngFor="let money of moneys; index as index;" [value]="index" aria-selected="true">
+          {{ money }}
+        </mat-option>
+      </mat-select>
+
+    </div>
+
+  </form>
+</app-profile-card-layout>

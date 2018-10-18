@@ -1,0 +1,19 @@
+<app-profile-card-layout selectedLink="step3" [leftNav]="leftLink" [rightNav]="rightLink" [header]="header">
+  <div class="text-center">
+    <div class="auth-content">
+      <div class="row margin-0">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 auth-padding" *ngFor="let expertise of expertises | async">
+          <div (click)="pick(expertise)" class="border text-left row m-0 auth-square {{expertise.picked ? 'picked' : ''}}">
+            <div class="col flex-grow-1">
+              {{expertise.name}}
+            </div>
+            <div class="col ml-auto flex-grow-0">
+              <i *ngIf="expertise.picked" class="fas tool fa-check-circle"></i>
+              <i *ngIf="!expertise.picked" class="far tool fa-check-circle"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-profile-card-layout>

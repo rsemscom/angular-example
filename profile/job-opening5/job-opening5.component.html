@@ -1,0 +1,41 @@
+<app-profile-card-layout selectedLink="step5" [leftNav]="leftLink" [rightNav]="rightLink" header="Programming languages">
+
+  <mat-form-field class="example-full-width">
+    <input matInput type="text" placeholder="Filter the languages" #searchInput [(ngModel)]="filter">
+    <span class="form-control-feedback">
+            <span class="fas fa-search"></span>
+        </span>
+  </mat-form-field>
+  <div class="text-center">
+    <div class="auth-content">
+      <div class="row margin-0">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 auth-padding"
+             *ngFor="let technology of (technologies | async | technologiesFilter: filter)">
+          <div class="border text-left row m-0 auth-square  dropdown-toggle {{getClass(technology)}}"
+               data-toggle="dropdown" aria-expanded="true">
+            <div class="col flex-grow-1">
+              {{technology.name}}
+            </div>
+            <div class="col ml-auto flex-grow-0">
+              <i *ngIf="getClass(technology)" class="fas tool fa-check-circle"></i>
+              <i *ngIf="!getClass(technology)" class="far tool fa-check-circle"></i>
+            </div>
+
+            <!--<div class="dropdown">-->
+
+            <ul class="dropdown-menu">
+              <li [class]="technology.state === i ? 'd-none' : ''"
+                  *ngFor="let variant of variants; index as i;" (click)="change(technology, i)">
+                <a href="#">{{variant}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12" *ngIf="!(technologies | async | technologiesFilter: filter).length">
+          <h3 class="text-center">No such technologies</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</app-profile-card-layout>

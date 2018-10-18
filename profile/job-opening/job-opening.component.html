@@ -1,0 +1,18 @@
+<app-profile-card-layout selectedLink="step1" [leftNav]="leftLink" [rightNav]="rightLink">
+  <form [formGroup]="form" class="flex-grow-1">
+    <div class="row">
+      <div class="col col-12">
+        <app-input-with-max-length label="Position title" [field]="title" placeholder="Position title*"></app-input-with-max-length>
+      </div>
+      <div class="col col-12">
+        <app-input-with-max-length label="Target location" [field]="position" placeholder="City and Country"></app-input-with-max-length>
+      </div>
+      <div class="col col-12 col-md-6">
+        <app-input-with-max-length type="textarea" [field]="requirements" label="Person requirements" placeholder="Ex: Lorem ipsum dolor sit amet" max-length=220></app-input-with-max-length>
+      </div>
+      <div class="col col-12 col-md-6">
+        <app-input-with-max-length type="textarea" [field]="desc" label="Desription of the job" placeholder="Ex: Lorem ipsum dolor sit amet" max-length=220></app-input-with-max-length>
+      </div>
+    </div>
+  </form>
+</app-profile-card-layout>

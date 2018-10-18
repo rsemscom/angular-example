@@ -1,0 +1,30 @@
+<div class="dashboard-popup">
+
+  <div class="modal-header">
+    Candidate founded
+    <div class="close-button">
+      <div class="fa fa-times" (click)="closeDialog()"></div>
+    </div>
+  </div>
+
+  <div class="modal-body">
+    <div class="modal-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</div>
+
+
+    <div class="dropdown">
+      <button href="#" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="true" >
+        {{candidate}}
+        <b class="caret"></b>
+      </button>
+      <ul class="dropdown-menu">
+        <li *ngFor="let candidate of candidates" [value]="candidate.value"  (click)="setCandidate(candidate.viewValue)"><a>{{ candidate.viewValue }}</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="modal-footer">
+    <a (click)="closeDialog()">DECLINE</a>
+    <a (click)="closeDialog()">ACCEPT</a>
+  </div>
+</div>

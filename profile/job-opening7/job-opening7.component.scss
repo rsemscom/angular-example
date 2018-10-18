@@ -1,0 +1,21 @@
+.form-control-feedback {
+  opacity: 1;
+}
+
+.salary-input {
+  max-width: 422px;
+
+  input {
+    padding-right: 65px;
+  }
+
+  mat-select {
+    position: absolute;
+    bottom: 22px;
+    right: 2px;
+    display: inline-block;
+    width: 60px;
+    padding-left: 5px;
+    border: 1px dotted grey;
+  }
+}

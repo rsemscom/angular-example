@@ -1,0 +1,24 @@
+<app-profile-card-layout selectedLink="step6" [leftNav]="leftLink" [rightNav]="rightLink"  header="Is ideally working in those industries">
+  <div class="text-center">
+    <div class="auth-content">
+      <div class="row margin-0">
+        <div class="col col-12 text-left">
+          <mat-checkbox>Industry doesn`t metter</mat-checkbox>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 auth-padding" *ngFor="let industry of industries | async">
+          <div (click)="pick(industry)" class="border text-left row m-0 auth-square {{industry.picked ? 'picked' : ''}}">
+            <div class="col flex-grow-1">
+              {{industry.name}}
+            </div>
+            <div class="col ml-auto flex-grow-0">
+              <i *ngIf="industry.picked" class="fas tool fa-check-circle"></i>
+              <i *ngIf="!industry.picked" class="far tool fa-check-circle"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-profile-card-layout>

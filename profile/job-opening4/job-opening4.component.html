@@ -1,0 +1,41 @@
+<app-profile-card-layout selectedLink="step4" [leftNav]="leftLink" [rightNav]="rightLink" header="Has expertise in following areas">
+
+  <mat-form-field class="example-full-width">
+    <input matInput type="text" placeholder="Filter the areas" #searchInput [(ngModel)]="filter">
+    <span class="form-control-feedback">
+            <span class="fas fa-search"></span>
+        </span>
+  </mat-form-field>
+  <div class="text-center">
+    <div class="auth-content">
+      <div class="row margin-0">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 auth-padding"
+             *ngFor="let area of (areas | async | areaFilter: filter)">
+          <div class="border text-left row m-0 auth-square  dropdown-toggle {{getClass(area)}}"
+               data-toggle="dropdown" aria-expanded="true">
+            <div class="col flex-grow-1">
+              {{area.name}}
+            </div>
+            <div class="col ml-auto flex-grow-0">
+              <i *ngIf="getClass(area)" class="fas tool fa-check-circle"></i>
+              <i *ngIf="!getClass(area)" class="far tool fa-check-circle"></i>
+            </div>
+
+            <!--<div class="dropdown">-->
+
+            <ul class="dropdown-menu">
+              <li [class]="area.state === i ? 'd-none' : ''"
+                  *ngFor="let variant of variants; index as i;" (click)="change(area, i)">
+                <a href="#">{{variant}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12" *ngIf="!(areas | async | areaFilter: filter).length">
+          <h3 class="text-center">No such areas</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</app-profile-card-layout>
